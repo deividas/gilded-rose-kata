@@ -1,31 +1,28 @@
 package com.github.deividasp.gildedrose;
 
-import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
 public class GildedRoseTest {
 
-    private GildedRose gildedRose;
-
-    @Before
-    public void setUp() {
-        Item[] items = TestItemDefinition.toItemArray();
-
-        gildedRose = new GildedRose(items);
-    }
-
     @Test
     public void testItems() {
-        gildedRose.updateQuality();
-        gildedRose.getItems().forEach(this::testItem);
+        GildedRose gildedRose;
+
+        for (TestItemDefinition def : TestItemDefinition.values()) {
+            gildedRose = new GildedRose(new Item[] { def.toItem() });
+            gildedRose.updateQuality();
+            gildedRose.getItems().forEach(item -> testItem(item, def.getVersion()));
+        }
     }
 
-    private void testItem(Item item) {
-        TestItemDefinition.get(item.name).ifPresent(def -> {
-            assertEquals("Incorrect sell in for: " + def.getName(), def.getExpectedSellIn(), item.sellIn);
-            assertEquals("Incorrect quality for: " + def.getName(), def.getExpectedQuality(), item.quality);
+    private void testItem(Item item, int version) {
+        TestItemDefinition.get(item.name, version).ifPresent(def -> {
+            assertEquals("Incorrect sell-in for: " + def.toString(),
+                    def.getExpectedSellIn(), item.sellIn);
+            assertEquals("Incorrect quality for: " + def.toString(),
+                    def.getExpectedQuality(), item.quality);
         });
     }
 
