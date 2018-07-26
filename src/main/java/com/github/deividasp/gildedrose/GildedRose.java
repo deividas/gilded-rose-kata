@@ -1,5 +1,8 @@
 package com.github.deividasp.gildedrose;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class GildedRose {
 
     /*
@@ -62,6 +65,10 @@ public class GildedRose {
                 }
             }
         }
+    }
+
+    public List<Item> getItems() {
+        return Arrays.asList(items);
     }
 
 }
