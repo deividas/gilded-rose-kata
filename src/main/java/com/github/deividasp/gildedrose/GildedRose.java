@@ -1,7 +1,11 @@
 package com.github.deividasp.gildedrose;
 
-class GildedRose {
-    Item[] items;
+public class GildedRose {
+
+    /*
+     * Due to exercise requirements, this property cannot be altered
+     */
+    private final Item[] items;
 
     public GildedRose(Item[] items) {
         this.items = items;
@@ -59,4 +63,5 @@ class GildedRose {
             }
         }
     }
+
 }
