@@ -12,7 +12,7 @@ public enum TestItemDefinition {
     AGED_BRIE_V2(2, "Aged Brie", 10, 9, 50, 50),
 
     // Never has to be sold or decreases in quality
-    SULFURAS_V1(1, "Sulfuras, Hand of Ragnaros", 20, 20, 20, 20),
+    SULFURAS_V1(1, "Sulfuras, Hand of Ragnaros", 20, 20, 80, 80),
 
     // Increases in quality the older it gets
     BACKSTAGE_PASSES_V1(1, "Backstage passes to a TAFKAL80ETC concert", 30, 29, 30, 31),
@@ -24,7 +24,13 @@ public enum TestItemDefinition {
     BACKSTAGE_PASSES_V3(3, "Backstage passes to a TAFKAL80ETC concert", 5, 4, 30, 33),
 
     // Quality drops to 0 after concert
-    BACKSTAGE_PASSES_V4(4, "Backstage passes to a TAFKAL80ETC concert", 0, -1, 30, 0);
+    BACKSTAGE_PASSES_V4(4, "Backstage passes to a TAFKAL80ETC concert", 0, -1, 30, 0),
+
+    // Quality decreases by 1 at the end of each day
+    DEXTERITY_VEST_V1(1, "+5 Dexterity Vest", 10, 9, 25, 24),
+
+    // Once the sell date has passed, quality degrades twice as fast
+    DEXTERITY_VEST_V2(2, "+5 Dexterity Vest", 0, -1, 25, 23);
 
     private final int version;
     private final String name;
