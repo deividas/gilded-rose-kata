@@ -16,8 +16,10 @@ public class GildedRose {
 
     public void updateQuality() {
         for (Item item : items) {
-            switch (item.name) {
-                case "Aged Brie":
+            ItemType itemType = ItemType.findBy(item.name);
+
+            switch (itemType) {
+                case AGED_BRIE:
                     if (item.quality < 50)
                         item.quality++;
 
@@ -27,7 +29,7 @@ public class GildedRose {
                         item.quality++;
                     break;
 
-                case "Backstage passes to a TAFKAL80ETC concert":
+                case BACKSTAGE_PASSES:
                     if (item.quality < 50)
                         item.quality++;
 
@@ -43,10 +45,20 @@ public class GildedRose {
                         item.quality = 0;
                     break;
 
-                case "Sulfuras, Hand of Ragnaros":
+                case SULFURAS:
                     break;
 
-                default:
+                case CONJURED:
+                    if (item.quality > 0)
+                        item.quality -= (item.quality - 1 > 0) ? 2 : 1;
+
+                    item.sellIn--;
+
+                    if (item.sellIn < 0 && item.quality > 0)
+                        item.quality -= (item.quality - 1 > 0) ? 2 : 1;
+                    break;
+
+                case OTHER:
                     if (item.quality > 0)
                         item.quality--;
 
