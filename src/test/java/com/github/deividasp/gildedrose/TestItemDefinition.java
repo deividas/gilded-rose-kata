@@ -1,7 +1,7 @@
 package com.github.deividasp.gildedrose;
 
+import java.util.Arrays;
 import java.util.Optional;
-import java.util.stream.Stream;
 
 public enum TestItemDefinition {
 
@@ -25,6 +25,10 @@ public enum TestItemDefinition {
 
     // Quality drops to 0 after concert
     BACKSTAGE_PASSES_V4(4, "Backstage passes to a TAFKAL80ETC concert", 0, -1, 30, 0),
+
+    // Conjured items degrade in quality twice as fast as normal items
+    CONJURED_MANA_CAKE_V1(1, "Conjured Mana Cake", 5, 4, 6, 4),
+    CONJURED_MANA_POTION_V1(1, "Conjured Mana Potion", 10, 9, 10, 8),
 
     // Quality decreases by 1 at the end of each day
     DEXTERITY_VEST_V1(1, "+5 Dexterity Vest", 10, 9, 25, 24),
@@ -65,7 +69,7 @@ public enum TestItemDefinition {
     }
 
     public static Optional<TestItemDefinition> get(String name, int version) {
-        return Stream.of(values())
+        return Arrays.stream(values())
                 .filter(def -> def.name.equals(name) && def.version == version)
                 .findFirst();
     }
