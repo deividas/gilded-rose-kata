@@ -2,6 +2,7 @@ package com.github.deividasp.gildedrose.item.updater;
 
 import com.github.deividasp.gildedrose.item.TestItemDefinition;
 import com.github.deividasp.gildedrose.item.Item;
+
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
