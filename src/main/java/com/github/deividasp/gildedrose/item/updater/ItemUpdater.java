@@ -15,38 +15,38 @@ public abstract class ItemUpdater {
 
     public abstract void execute();
 
-    void decreaseSellIn() {
+    final void decreaseSellIn() {
         item.sellIn--;
     }
 
-    boolean isSellInLessThan(int value) {
+    final boolean isSellInLessThan(int value) {
         return item.sellIn < value;
     }
 
-    boolean isSellInNegative() {
+    final boolean isSellInNegative() {
         return item.sellIn < 0;
     }
 
-    void setQuality(int quality) {
+    final void setQuality(int quality) {
         item.quality = quality;
     }
 
-    void increaseQuality() {
+    final void increaseQuality() {
         increaseQuality(1);
     }
 
-    void increaseQuality(int increaseBy) {
+    final void increaseQuality(int increaseBy) {
         item.quality += increaseBy;
 
         if (item.quality > MAX_QUALITY)
             item.quality = MAX_QUALITY;
     }
 
-    void decreaseQuality() {
+    final void decreaseQuality() {
         decreaseQuality(1);
     }
 
-    void decreaseQuality(int decreaseBy) {
+    final void decreaseQuality(int decreaseBy) {
         item.quality -= decreaseBy;
 
         if (item.quality < MIN_QUALITY)
