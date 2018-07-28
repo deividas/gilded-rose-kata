@@ -16,8 +16,8 @@ public class DefaultGildedRoseService implements GildedRoseService {
     private ItemRepository itemRepository;
 
     @Override
-    public Optional<Item> getItem(String name) {
-        return itemRepository.find(name);
+    public Optional<Item> getItem(String namePrefix) {
+        return itemRepository.find(namePrefix);
     }
 
     @Override
