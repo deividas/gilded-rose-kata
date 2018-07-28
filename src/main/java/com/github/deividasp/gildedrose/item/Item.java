@@ -1,4 +1,4 @@
-package com.github.deividasp.gildedrose;
+package com.github.deividasp.gildedrose.item;
 
 /*
  * Due to exercise requirements, this class cannot be altered

@@ -1,4 +1,4 @@
-package com.github.deividasp.gildedrose;
+package com.github.deividasp.gildedrose.item;
 
 import java.util.Arrays;
 

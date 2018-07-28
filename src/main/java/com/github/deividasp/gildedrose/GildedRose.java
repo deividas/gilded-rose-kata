@@ -1,5 +1,8 @@
 package com.github.deividasp.gildedrose;
 
+import com.github.deividasp.gildedrose.item.Item;
+import com.github.deividasp.gildedrose.item.ItemType;
+
 import java.util.Arrays;
 import java.util.List;
 

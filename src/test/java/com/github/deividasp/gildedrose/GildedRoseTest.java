@@ -1,5 +1,7 @@
 package com.github.deividasp.gildedrose;
 
+import com.github.deividasp.gildedrose.item.Item;
+import com.github.deividasp.gildedrose.item.TestItemDefinition;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
